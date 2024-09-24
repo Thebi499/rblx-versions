@@ -1,0 +1,83 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Part" referent="RBX0">
+		<Properties>
+			<CoordinateFrame name="CFrame">
+				<X>6.00001526</X>
+				<Y>0.999999821</Y>
+				<Z>-8.99999237</Z>
+				<R00>-1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>-1</R22>
+			</CoordinateFrame>
+			<Vector3 name="Velocity">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
+			<Vector3 name="RotVelocity">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
+			<token name="shape">1</token>
+			<int name="BrickColor">21</int>
+			<float name="Transparency">0</float>
+			<float name="Reflectance">0</float>
+			<bool name="Locked">false</bool>
+			<bool name="Anchored">false</bool>
+			<bool name="CanCollide">true</bool>
+			<token name="FormFactor">1</token>
+			<Vector3 name="size">
+				<X>2</X>
+				<Y>1.20000005</Y>
+				<Z>2</Z>
+			</Vector3>
+			<float name="Elasticity">0.5</float>
+			<float name="Friction">0.300000012</float>
+			<string name="Name">Snake</string>
+			<tokens name="Keywords">Part</tokens>
+			<token name="TopSurface">3</token>
+			<token name="TopSurfaceInput">0</token>
+			<float name="TopParamA">-0.5</float>
+			<float name="TopParamB">0.5</float>
+			<token name="BottomSurface">4</token>
+			<token name="BottomSurfaceInput">0</token>
+			<float name="BottomParamA">-0.5</float>
+			<float name="BottomParamB">0.5</float>
+			<token name="LeftSurface">0</token>
+			<token name="LeftSurfaceInput">0</token>
+			<float name="LeftParamA">-0.5</float>
+			<float name="LeftParamB">0.5</float>
+			<token name="RightSurface">0</token>
+			<token name="RightSurfaceInput">0</token>
+			<float name="RightParamA">-0.5</float>
+			<float name="RightParamB">0.5</float>
+			<token name="FrontSurface">0</token>
+			<token name="FrontSurfaceInput">0</token>
+			<float name="FrontParamA">-0.5</float>
+			<float name="FrontParamB">0.5</float>
+			<token name="BackSurface">0</token>
+			<token name="BackSurfaceInput">0</token>
+			<float name="BackParamA">-0.5</float>
+			<float name="BackParamB">0.5</float>
+			<bool name="NameShown">false</bool>
+			<bool name="ControllerFlagShown">true</bool>
+			<token name="Controller">0</token>
+		</Properties>
+		<Item class="Script">
+			<Properties>
+				<string name="Name">Script</string>
+				<tokens name="Keywords" xsi:nil="true"></tokens>
+				<string name="Source">local r = game:service(&quot;RunService&quot;);&#13;&#10;&#13;&#10;local nextTime = 0&#13;&#10;&#13;&#10;local vx = 0&#13;&#10;local vz = 2&#13;&#10;&#13;&#10;local head = script.Parent&#13;&#10;&#13;&#10;local headIndex = 0&#13;&#10;local snake = {}&#13;&#10;&#13;&#10;function move(time)&#13;&#10;&#9;local r = math.random(6)&#13;&#10;&#9;if r==1 then&#13;&#10;&#9;&#9;local temp = vx&#13;&#10;&#9;&#9;vx = vz&#13;&#10;&#9;&#9;vz = temp&#13;&#10;&#9;elseif r==2 then&#13;&#10;&#9;&#9;local temp = vx&#13;&#10;&#9;&#9;vx = -vz&#13;&#10;&#9;&#9;vz = temp&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;local p = head.Position&#13;&#10;&#9;local q = Vector3.new(math.max(-30,math.min(30,p.x+vx)), p.y, math.max(-30,math.min(30,p.z+vz)))&#13;&#10;&#9;head.Position = q&#13;&#10;&#13;&#10;&#13;&#10;&#9;local segment = Instance.new(&quot;Part&quot;)&#13;&#10;&#13;&#10;&#9;segment.Position = Vector3.new(math.floor(p.x), p.y, math.floor(p.z))&#13;&#10;&#9;segment.Size = Vector3.new(2,1,2)&#13;&#10;&#9;segment.BrickColor = BrickColor.new(102)&#13;&#10;&#9;segment.Name = &quot;Segment &quot; .. time&#13;&#10;&#9;segment.Parent = head.Parent&#13;&#10;&#13;&#10;&#9;headIndex = headIndex + 1&#13;&#10;&#9;if headIndex&gt;100 then&#13;&#10;&#9;&#9;headIndex = 1&#13;&#10;&#9;end&#13;&#10;&#9;if snake[headIndex]~=nil then&#13;&#10;&#9;&#9;snake[headIndex].Parent = nil&#13;&#10;&#9;end&#13;&#10;&#9;snake[headIndex] = segment&#13;&#10;&#9;&#13;&#10;&#13;&#10;end&#13;&#10;&#13;&#10;while head.Parent~=nil do&#13;&#10;&#13;&#10;&#9;time = r.Stepped:wait()&#13;&#10;&#13;&#10;   if time &gt; nextTime then&#13;&#10;&#9;&#9;move(time)&#13;&#10;&#9;&#9;nextTime = time + 0.1&#13;&#10;&#9;end&#13;&#10;end&#13;&#10;&#13;&#10; -- change color of the trail&#13;&#10; for i,segment in ipairs(snake) do&#13;&#10;    segment.BrickColor = BrickColor.new(4)&#13;&#10; end&#13;&#10;</string>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

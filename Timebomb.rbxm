@@ -1,0 +1,139 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool">
+		<Properties>
+			<int name="ActivationState">0</int>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>0</R11>
+				<R12>-1</R12>
+				<R20>-0</R20>
+				<R21>1</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<string name="Name">ClassicTimebomb</string>
+			<Content name="TextureId"><url>rbxasset://Textures/Bomb.png</url></Content>
+			<bool name="archivable">true</bool>
+		</Properties>
+		<Item class="Part">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>-208</X>
+					<Y>13.3999996</Y>
+					<Z>-450</Z>
+					<R00>-1</R00>
+					<R01>-1.08416859e-010</R01>
+					<R02>-2.25344743e-010</R02>
+					<R10>2.25344743e-010</R10>
+					<R11>-1.76532541e-012</R11>
+					<R12>1</R12>
+					<R20>1.08416859e-010</R20>
+					<R21>1</R21>
+					<R22>-1.76532541e-012</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<bool name="CastsShadows">true</bool>
+				<token name="Controller">0</token>
+				<bool name="ControllerFlagShown">true</bool>
+				<bool name="Cullable">true</bool>
+				<bool name="DraggingV1">false</bool>
+				<float name="Elasticity">0.5</float>
+				<token name="FormFactor">0</token>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<bool name="archivable">true</bool>
+				<token name="shape">0</token>
+				<Vector3 name="size">
+					<X>2</X>
+					<Y>2</Y>
+					<Z>2</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh">
+				<Properties>
+					<Content name="MeshId"><url>rbxasset://fonts/timebomb.mesh</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<Content name="TextureId"><url>rbxasset://textures/bombtex.png</url></Content>
+					<bool name="archivable">true</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<string name="Name">Local Gui</string>
+				<string name="Source">local Tool = script.Parent;&#13;&#10;&#13;&#10;local enabled = true&#13;&#10;function onButton1Down(mouse)&#13;&#10;&#9;if not enabled then&#13;&#10;&#9;&#9;return&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;enabled = false&#13;&#10;&#9;mouse.Icon = &quot;rbxasset://textures\\ArrowFarCursor.png&quot;&#13;&#10;&#13;&#10;&#9;wait(6)&#13;&#10;&#9;mouse.Icon = &quot;rbxasset://textures\\ArrowCursor.png&quot;&#13;&#10;&#9;enabled = true&#13;&#10;&#13;&#10;end&#13;&#10;&#13;&#10;function onEquippedLocal(mouse)&#13;&#10;&#13;&#10;&#9;if mouse == nil then&#13;&#10;&#9;&#9;print(&quot;Mouse not found&quot;)&#13;&#10;&#9;&#9;return &#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;mouse.Icon = &quot;rbxasset://textures\\ArrowCursor.png&quot;&#13;&#10;&#9;mouse.Button1Down:connect(function() onButton1Down(mouse) end)&#13;&#10;end&#13;&#10;&#13;&#10;Tool.Equipped:connect(onEquippedLocal)&#13;&#10;</string>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="Script">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<string name="Name">PlantBomb</string>
+				<string name="Source">local bombScript = script.Parent.Bomb&#13;&#10;local Tool = script.Parent&#13;&#10;local Bomb = Tool.Handle&#13;&#10;&#13;&#10;function plant()&#13;&#10;&#9;local bomb2 = Instance.new(&quot;Part&quot;)&#13;&#10;   &#13;&#10;&#9;local vCharacter = Tool.Parent&#13;&#10;&#9;local vPlayer = game.Players:playerFromCharacter(vCharacter)&#13;&#10;&#13;&#10;&#9;local spawnPos = Bomb.Position&#13;&#10;&#13;&#10;&#9;bomb2.Position = Vector3.new(spawnPos.x, spawnPos.y+3, spawnPos.z)&#13;&#10;&#9;bomb2.Size = Vector3.new(2,2,2)&#13;&#10;&#9;&#13;&#10;&#9;bomb2.BrickColor = BrickColor.new(21)&#13;&#10;&#9;bomb2.Shape = 0&#13;&#10;&#9;bomb2.BottomSurface = 0&#13;&#10;&#9;bomb2.TopSurface = 0&#13;&#10;&#9;bomb2.Reflectance = 1&#13;&#10;&#9;bomb2.Name = &quot;TimeBomb&quot;&#13;&#10;&#9;bomb2.Locked = true&#13;&#10;&#13;&#10;&#9;local creator_tag = Instance.new(&quot;ObjectValue&quot;)&#13;&#10;&#9;creator_tag.Value = vPlayer&#13;&#10;&#9;creator_tag.Name = &quot;creator&quot;&#13;&#10;&#9;creator_tag.Parent = bomb2&#13;&#10;&#13;&#10;&#9;bomb2.Parent = game.Workspace&#13;&#10;&#9;local new_script = bombScript:clone()&#13;&#10;&#9;new_script.Disabled = false&#13;&#10;&#9;new_script.Parent = bomb2&#13;&#10;end&#13;&#10;&#13;&#10;&#13;&#10;Tool.Enabled = true&#13;&#10;function onActivated()&#13;&#10;&#13;&#10;&#9;if not Tool.Enabled then&#13;&#10;&#9;&#9;return&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;Tool.Enabled = false&#13;&#10;&#13;&#10;&#9;local character = Tool.Parent;&#13;&#10;&#9;local humanoid = character.Humanoid&#13;&#10;&#9;if humanoid == nil then&#13;&#10;&#9;&#9;print(&quot;Humanoid not found&quot;)&#13;&#10;&#9;&#9;return &#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;local targetPos = humanoid.TargetPoint&#13;&#10;&#9;Bomb.Transparency = 1.0&#13;&#10;&#13;&#10;&#9;plant()&#13;&#10;&#13;&#10;&#9;wait(6)&#13;&#10;&#9;Bomb.Transparency = 0.0&#13;&#10;&#13;&#10;&#9;Tool.Enabled = true&#13;&#10;end&#13;&#10;&#13;&#10;function onUnequipped()&#13;&#10;end&#13;&#10;&#13;&#10;&#13;&#10;Tool.Activated:connect(onActivated)&#13;&#10;Tool.Unequipped:connect(onUnequipped)</string>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="Script">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<string name="Name">Bomb</string>
+				<string name="Source">local updateInterval = .4&#13;&#10;&#13;&#10;local currentColor = 1&#13;&#10;local colors = {26, 21} &#13;&#10;&#13;&#10;local ticksound = Instance.new(&quot;Sound&quot;)&#13;&#10;ticksound.SoundId = &quot;rbxasset://sounds\\clickfast.wav&quot;&#13;&#10;ticksound.Parent = script.Parent&#13;&#10;&#13;&#10;function update()&#13;&#10;&#9;updateInterval = updateInterval * .9&#13;&#10;&#9;script.Parent.BrickColor = BrickColor.new(colors[currentColor])&#13;&#10;&#9;currentColor = currentColor + 1&#13;&#10;&#9;if (currentColor &gt; 2) then currentColor = 1 end&#13;&#10;end&#13;&#10;&#13;&#10;&#13;&#10;function blowUp()&#13;&#10;&#9;local sound = Instance.new(&quot;Sound&quot;)&#13;&#10;&#9;&#9;sound.SoundId = &quot;rbxasset://sounds\\Rocket shot.wav&quot;&#13;&#10;&#9;&#9;sound.Parent = script.Parent&#13;&#10;&#9;&#9;sound.Volume = 1&#13;&#10;&#9;&#9;sound:play()&#13;&#10;&#9;explosion = Instance.new(&quot;Explosion&quot;)&#13;&#10;&#9;explosion.BlastRadius = 12&#13;&#10;&#9;explosion.BlastPressure = 1000000 -- these are really wussy units&#13;&#10;&#13;&#10;&#9;-- find instigator tag&#13;&#10;&#9;local creator = script.Parent:findFirstChild(&quot;creator&quot;)&#13;&#10;&#9;if creator ~= nil then&#13;&#10;&#9;&#9;explosion.Hit:connect(function(part, distance)  onPlayerBlownUp(part, distance, creator) end)&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;explosion.Position = script.Parent.Position&#13;&#10;&#9;explosion.Parent = game.Workspace&#13;&#10;&#9;script.Parent.Transparency = 1&#13;&#10;end&#13;&#10;&#13;&#10;function onPlayerBlownUp(part, distance, creator)&#13;&#10;&#9;if part.Name == &quot;Head&quot; then&#13;&#10;&#9;&#9;local humanoid = part.Parent.Humanoid&#13;&#10;&#9;&#9;tagHumanoid(humanoid, creator)&#13;&#10;&#9;end&#13;&#10;end&#13;&#10;&#13;&#10;function tagHumanoid(humanoid, creator)&#13;&#10;&#9;-- tag does not need to expire iff all explosions lethal&#9;&#13;&#10;&#9;if creator ~= nil then&#13;&#10;&#9;&#9;local new_tag = creator:clone()&#13;&#10;&#9;&#9;new_tag.Parent = humanoid&#13;&#10;&#9;end&#13;&#10;end&#13;&#10;&#13;&#10;function untagHumanoid(humanoid)&#13;&#10;&#9;if humanoid ~= nil then&#13;&#10;&#9;&#9;local tag = humanoid:findFirstChild(&quot;creator&quot;)&#13;&#10;&#9;&#9;if tag ~= nil then&#13;&#10;&#9;&#9;&#9;tag.Parent = nil&#13;&#10;&#9;&#9;end&#13;&#10;&#9;end&#13;&#10;end&#13;&#10;&#13;&#10;while updateInterval &gt; .1 do&#13;&#10;&#9;wait(updateInterval)&#13;&#10;&#9;update()&#9;&#13;&#10;&#9;ticksound:play()&#9;&#13;&#10;end&#13;&#10;&#13;&#10;blowUp()&#13;&#10;wait(2)&#13;&#10;script.Parent:remove()&#13;&#10;</string>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>
